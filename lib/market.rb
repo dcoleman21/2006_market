@@ -1,10 +1,12 @@
 class Market
   attr_reader :name,
-              :vendors
+              :vendors,
+              :date
 
   def initialize(name)
     @name    = name
     @vendors = []
+    @date    = DateTime.new
   end
 
   def add_vendor(vendor)
@@ -51,5 +53,10 @@ class Market
        data[:quantity] > 50 &&  data[:vendors].count > 1
      end
      found.keys
+  end
+
+  def sell(item, quantity)
+    found = total_inventory[item]
+    # require "pry"; binding.pry
   end
 end
