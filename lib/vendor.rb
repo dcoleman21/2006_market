@@ -22,7 +22,11 @@ class Vendor
     sum_price
   end
 
-  def some_method
-
+  def all_items_in_stock
+    items = []
+    @inventory.each do |item, _|
+      items << item
+    end
+    items
   end
 end
