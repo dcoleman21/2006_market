@@ -10,5 +10,4 @@ class Item
   def price
     (@price[1..-1]).to_f
   end
-
 end
