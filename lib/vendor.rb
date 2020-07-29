@@ -21,4 +21,8 @@ class Vendor
     end
     sum_price
   end
+
+  def some_method
+
+  end
 end
