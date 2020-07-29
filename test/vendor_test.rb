@@ -50,10 +50,6 @@ class VendorTest < Minitest::Test
     assert_equal expected, @vendor1.inventory
   end
 
-  def some_test
-
-  end
-
   def test_it_has_a_potential_revenue
     @vendor1.stock(@item1, 35)
     @vendor1.stock(@item2, 7)
@@ -63,5 +59,14 @@ class VendorTest < Minitest::Test
     assert_equal 29.75, @vendor1.potential_revenue
     assert_equal 345.00, @vendor2.potential_revenue
     assert_equal 48.75, @vendor3.potential_revenue
+  end
+
+  def test_can_get_all_items_in_stock
+    @vendor1.stock(@item1, 35)
+    @vendor1.stock(@item2, 7)
+    @vendor2.stock(@item4, 50)
+    @vendor2.stock(@item3, 25)
+    @vendor3.stock(@item1, 65)
+    assert_equal [@item1, @item2], @vendor1.all_items_in_stock
   end
 end
